@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://48lwns7146i1"]
+
+[ext_resource type="Script" uid="uid://5jgcx3vrpata" path="res://scenes/GameOverScene.gd" id="1"]
+
+[node name="GameOverScene" type="Node" unique_id=1710835076]
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=725275139]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+alignment = 1
+
+[node name="Title" type="Label" parent="VBox" unique_id=388222100]
+layout_mode = 2
+text = "💀 GAME OVER"
+horizontal_alignment = 1
+
+[node name="WaveLabel" type="Label" parent="VBox" unique_id=1902383332]
+layout_mode = 2
+text = "Mort à la vague 0"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="VBox" unique_id=595311120]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBox" unique_id=206298895]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="BtnRetry" type="Button" parent="VBox" unique_id=226140582]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "🔄 Nouvelle run"
+
+[node name="BtnMenu" type="Button" parent="VBox" unique_id=1734812648]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "🏠 Menu principal"
+
+[connection signal="pressed" from="VBox/BtnRetry" to="." method="_on_btn_retry_pressed"]
+[connection signal="pressed" from="VBox/BtnMenu" to="." method="_on_btn_menu_pressed"]

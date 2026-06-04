@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://b1u8hskrbfykm"]
+
+[ext_resource type="Script" uid="uid://b5sld6ss7l8ec" path="res://scenes/ClassSelectScene.gd" id="1"]
+[ext_resource type="Script" uid="uid://cv4nbpvovm1ac" path="res://scripts/systems/CombatSystem.gd" id="2_k55n7"]
+
+[node name="ClassSelectScene" type="Node" unique_id=1005201565]
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1947270650]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 16.0
+offset_right = -30.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_k55n7")
+
+[node name="TitleLabel" type="Label" parent="VBox" unique_id=1167973561]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "⚔️  Choisis ta classe"
+horizontal_alignment = 1
+
+[node name="ClassPanel" type="GridContainer" parent="VBox" unique_id=2027336670]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 3
+
+[node name="DescLabel" type="RichTextLabel" parent="VBox" unique_id=435999069]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="TraitPanel" type="VBoxContainer" parent="VBox" unique_id=1719632033]
+visible = false
+layout_mode = 2
+
+[node name="TraitTitle" type="Label" parent="VBox/TraitPanel" unique_id=1667438754]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "Choisis ton trait de départ :"
+
+[node name="TraitsGrid" type="GridContainer" parent="VBox/TraitPanel" unique_id=1513444140]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+columns = 4
+
+[node name="BtnConfirm" type="Button" parent="VBox" unique_id=1508098718]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "✅  Commencer la run !"
+
+[node name="BtnBack" type="Button" parent="VBox" unique_id=1064711666]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "← Retour"

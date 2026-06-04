@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bihvmffdui3sw"]
+
+[ext_resource type="Script" uid="uid://bx44xwwob2vgt" path="res://scenes/VictoryScene.gd" id="1"]
+
+[node name="VictoryScene" type="Node" unique_id=608221035]
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=599957877]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+alignment = 1
+
+[node name="Title" type="Label" parent="VBox" unique_id=1634378576]
+layout_mode = 2
+text = "🏆 VICTOIRE !"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="VBox" unique_id=2039663526]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBox" unique_id=223057737]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="BtnInfinite" type="Button" parent="VBox" unique_id=1573399893]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "♾️ Run Infinie"
+
+[node name="BtnMenu" type="Button" parent="VBox" unique_id=235048341]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "🏠 Menu principal"
+
+[connection signal="pressed" from="VBox/BtnInfinite" to="." method="_on_btn_infinite_pressed"]
+[connection signal="pressed" from="VBox/BtnMenu" to="." method="_on_btn_menu_pressed"]

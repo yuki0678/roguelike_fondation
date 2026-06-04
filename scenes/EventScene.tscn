@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://6hhaiki2dkow"]
+
+[ext_resource type="Script" uid="uid://d1f0vo0w3738q" path="res://scenes/EventScene.gd" id="1"]
+[ext_resource type="PackedScene" path="res://ui/PauseMenu.tscn" id="2_adqf5"]
+
+[node name="EventScene" type="Node" unique_id=1752885712]
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=609829562]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = -40.0
+offset_bottom = -20.0
+
+[node name="WaveLabel" type="Label" parent="VBox" unique_id=736572724]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "🎲 Événement"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="Label" parent="VBox" unique_id=452664295]
+layout_mode = 2
+text = "❤️ 100/100   💰 0 or"
+horizontal_alignment = 1
+
+[node name="Sep1" type="HSeparator" parent="VBox" unique_id=1260738841]
+layout_mode = 2
+
+[node name="QuestionLabel" type="Label" parent="VBox" unique_id=593860570]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "Question..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ChoicesPanel" type="VBoxContainer" parent="VBox" unique_id=1478601010]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+
+[node name="BtnA" type="Button" parent="VBox/ChoicesPanel" unique_id=1702643956]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "A)"
+
+[node name="BtnB" type="Button" parent="VBox/ChoicesPanel" unique_id=1966923811]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "B)"
+
+[node name="BtnC" type="Button" parent="VBox/ChoicesPanel" unique_id=305619449]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "C)"
+
+[node name="BtnD" type="Button" parent="VBox/ChoicesPanel" unique_id=1192602665]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "D)"
+
+[node name="Sep2" type="HSeparator" parent="VBox" unique_id=1534391887]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="VBox" unique_id=1155556484]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="RewardLabel" type="Label" parent="VBox" unique_id=1338869992]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="ContinueBtn" type="Button" parent="VBox" unique_id=916510826]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "➡️ Continuer"
+
+[node name="PauseMenu" parent="." unique_id=106821705 instance=ExtResource("2_adqf5")]

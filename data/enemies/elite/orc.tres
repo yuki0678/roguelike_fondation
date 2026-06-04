@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://cg8lpxcef41jh"]
+
+[ext_resource type="Script" uid="uid://cxdsuktaojs16" path="res://data/resources/EnemyResource.gd" id="1_7uy3m"]
+
+[resource]
+script = ExtResource("1_7uy3m")
+enemy_name = "Orc Élite"
+enemy_tier = "elite"
+max_hp = 80
+attack = 15
+defense = 8
+precision = 0.65
+evasion = 0.03
+xp_reward = 50
+gold_reward_min = 15
+gold_reward_max = 30
+can_defend = true
+can_use_status = true
+display_text = "[ORC]"
+metadata/_custom_type_script = "uid://cxdsuktaojs16"

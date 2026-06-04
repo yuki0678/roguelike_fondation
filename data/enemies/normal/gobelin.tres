@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://cihmlc8e1mu81"]
+
+[ext_resource type="Script" uid="uid://cxdsuktaojs16" path="res://data/resources/EnemyResource.gd" id="1_2vtom"]
+
+[resource]
+script = ExtResource("1_2vtom")
+enemy_name = "Gobelin"
+max_hp = 40
+attack = 8
+defense = 3
+gold_reward_max = 12
+display_text = "[GOBELIN]"
+metadata/_custom_type_script = "uid://cxdsuktaojs16"

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://co0p5se4xlup3"]
+
+[ext_resource type="Script" uid="uid://6kufw3x4xcnw" path="res://scenes/MarketScene.gd" id="1"]
+[ext_resource type="PackedScene" path="res://ui/PauseMenu.tscn" id="2_a1ju4"]
+
+[node name="MarketScene" type="Node" unique_id=1541909543]
+script = ExtResource("1")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=827156055]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 20.0
+offset_right = -30.0
+offset_bottom = -20.0
+
+[node name="WaveLabel" type="Label" parent="VBox" unique_id=1816613561]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "🏪 Marché"
+horizontal_alignment = 1
+
+[node name="GoldLabel" type="Label" parent="VBox" unique_id=716194974]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+text = "💰 Or : 0"
+horizontal_alignment = 1
+
+[node name="StatsLabel" type="RichTextLabel" parent="VBox" unique_id=507468104]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="Sep1" type="HSeparator" parent="VBox" unique_id=1677005294]
+layout_mode = 2
+
+[node name="ItemsPanel" type="VBoxContainer" parent="VBox" unique_id=851725175]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="Sep2" type="HSeparator" parent="VBox" unique_id=793506958]
+layout_mode = 2
+
+[node name="SaunaBtn" type="Button" parent="VBox" unique_id=277560121]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "🛁 Sauna"
+
+[node name="TraitBtn" type="Button" parent="VBox" unique_id=705873213]
+visible = false
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+text = "🌟 Trait Mythique"
+
+[node name="Sep3" type="HSeparator" parent="VBox" unique_id=2069054294]
+layout_mode = 2
+
+[node name="LogLabel" type="Label" parent="VBox" unique_id=1709036546]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LeaveBtn" type="Button" parent="VBox" unique_id=941649231]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "➡️ Quitter le marché"
+
+[node name="PauseMenu" parent="." unique_id=486303657 instance=ExtResource("2_a1ju4")]
