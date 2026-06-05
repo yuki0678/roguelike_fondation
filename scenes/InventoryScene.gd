@@ -152,35 +152,15 @@ func _item_label(item) -> String:
 	return "Item inconnu"
 
 func _on_item_pressed(item) -> void:
-	# Consommable : utilise directement sans équiper
-	if item is Object and item.has_meta("item_name"):
-		var special = item.get_meta("special", "")
-		match special:
-			"heal_on_pickup":
-				var hp = item.get_meta("hp_bonus", 0)
-				PlayerData.heal(hp)
-				Notifier.heal_notif(hp)
-				PlayerData.inventory.erase(item)
-				info_label.text = "💚 Potion utilisée : +%d PV !" % hp
-				_refresh_all()
-				return
-			"revive":
-				PlayerData.has_revive_item = true
-				PlayerData.inventory.erase(item)
-				info_label.text = "✨ Orbe de résurrection activé !"
-				_refresh_all()
-				return
-			"restart_combat":
-				PlayerData.has_restart_combat_item = true
-				PlayerData.inventory.erase(item)
-				info_label.text = "🔄 Cristal de reset activé !"
-				_refresh_all()
-				return
-	# Items équipables
 	if item is ScrollResource:
 		_equip_scroll(item)
-	elif item is Object and item.has_meta("item_name"):
-		_equip_gear(item)
+		_refresh_all()
+		return
+	if not (item is Object and item.has_meta("item_name")):
+		return
+	# Consommables et équipables gérés dans _equip_gear
+	# (qui vérifie special en priorité)
+	_equip_gear(item)
 	_refresh_all()
 
 func _equip_scroll(scroll: ScrollResource) -> void:
