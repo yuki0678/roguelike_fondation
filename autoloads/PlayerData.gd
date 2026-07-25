@@ -99,9 +99,11 @@ func apply_class(new_class: String) -> void:
 # ─────────────────────────────────────────
 #  HP & MANA
 # ─────────────────────────────────────────
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, check_death: bool = true) -> void:
 	current_hp = max(0, current_hp - amount)
 	AchievementSystem.check_low_hp(current_hp)
+	if check_death and is_dead():
+		CombatSystem.emit_signal("player_died")
 
 func heal(amount: int) -> void:
 	if "frenesie" in traits:

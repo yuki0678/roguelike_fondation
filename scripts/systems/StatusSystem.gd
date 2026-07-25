@@ -81,8 +81,6 @@ func _get_target_id(target: Dictionary) -> String:
 func _apply_damage(target: Dictionary, dmg: int) -> void:
 	if target.get("is_player", false):
 		PlayerData.take_damage(dmg)
-		if PlayerData.is_dead():
-			CombatSystem.emit_signal("player_died")
 	else:
 		target["hp"] = max(0, target.get("hp", 1) - dmg)
 

@@ -188,8 +188,6 @@ func enemy_attack(enemy: Dictionary, defense_bonus: int = 0) -> Dictionary:
 		PlayerData.current_hp, PlayerData.max_hp
 	]
 	emit_signal("combat_log", result["message"])
-	if PlayerData.is_dead():
-		emit_signal("player_died")
 	return result
 
 func can_attack_and_defend() -> bool:
