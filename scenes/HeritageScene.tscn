@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://k6a8cdajjbko"]
+[ext_resource type="Script" path="res://scenes/HeritageScene.gd" id="1"]
 
-[node name="HeritageScene" type="Node" unique_id=1940866468]
+[node name="HeritageScene" type="Node" script="res://scenes/HeritageScene.gd" unique_id=1940866468]
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=794362149]
 anchors_preset = 15
