@@ -183,8 +183,9 @@ func _on_btn_roll_pressed() -> void:
 
 func _resolve_player_turn() -> void:
 	# Vérifie les statuts joueur avant d'agir (gel/paralysie)
-	var can_act = StatusSystem.process_statuses({"is_player": true})
-	if not can_act:
+	var status_result = StatusSystem.process_statuses({"is_player": true})
+	for msg in status_result["messages"]: _log(msg)
+	if not status_result["can_act"]:
 		_log("[color=red]⚡ Tu es paralysé/gelé et ne peux pas agir ![/color]")
 		_refresh_ui()
 		if not combat_over:
@@ -271,7 +272,8 @@ func _enemy_turn() -> void:
 	for enemy in enemies:
 		if enemy["hp"] <= 0:
 			continue
-		StatusSystem.process_statuses(enemy)
+		var status_result = StatusSystem.process_statuses(enemy)
+		for msg in status_result["messages"]: _log(msg)
 		if enemy["hp"] <= 0:
 			continue
 		if enemy.get("tier") == "boss":

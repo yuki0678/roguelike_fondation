@@ -17,42 +17,49 @@ func apply_status(target: Dictionary, status_type: String, duration: int) -> voi
 			return
 	status_list.append({ "type": status_type, "duration": duration, "stacks": 1 })
 
-func process_statuses(target: Dictionary) -> bool:
+func process_statuses(target: Dictionary) -> Dictionary:
 	var status_list = _get_status_list(target)
 	if status_list == null:
-		return true
+		return { "can_act": true, "messages": [] }
 	var can_act = true
+	var messages = []
 	var to_remove = []
 	for status in status_list:
 		match status["type"]:
 			"burn":
 				var dmg = 5
 				_apply_damage(target, dmg)
+				messages.append("🔥 [b]Brûlure[/b] inflige %d dégâts !" % dmg)
 				if target.get("is_player", false):
 					PlayerData.attack = max(1, PlayerData.attack - 2)
 			"poison":
 				var dmg = 4
 				_apply_damage(target, dmg)
+				messages.append("☠️ [b]Poison[/b] inflige %d dégâts !" % dmg)
 				if target.get("is_player", false):
 					PlayerData.current_mana = max(0, PlayerData.current_mana - 1)
 			"freeze":
 				can_act = false
+				messages.append("❄️ [b]Gel[/b] : tu es paralysé !")
 			"paralysis":
 				if randf() < 0.60:
 					can_act = false
+					messages.append("⚡ [b]Paralysie[/b] : tu es paralysé !")
 			"bleed":
 				var dmg = 3 * status["stacks"]
 				_apply_damage(target, dmg)
+				messages.append("🩸 [b]Saignement[/b] inflige %d dégâts !" % dmg)
 			"curse":
 				if target.get("is_player", false):
 					PlayerData.attack  = max(1, int(PlayerData.attack * 0.80))
 					PlayerData.defense = max(0, int(PlayerData.defense * 0.80))
+					messages.append("🌑 [b]Malédiction[/b] : tes statistiques sont réduites !")
 		status["duration"] -= 1
 		if status["duration"] <= 0:
 			to_remove.append(status)
 	for s in to_remove:
 		status_list.erase(s)
-	return can_act
+	return { "can_act": can_act, "messages": messages }
 
 func _get_status_list(target: Dictionary):
 	if target.get("is_player", false):
